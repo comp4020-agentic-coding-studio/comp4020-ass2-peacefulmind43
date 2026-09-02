@@ -1,36 +1,48 @@
 ---
 title: Getting started
 description:
-  The first session of the semester — what to have working before you arrive,
-  and what happens once you do
+  The first Problem Session — no assignment is due yet, so it's spent
+  agreeing on notation and working the week 1 example by hand together
 week: 1
 date: 2027-02-22
 teachers:
   - renata-sokal
 spec:
-  - your development environment runs the course's toolchain
-  - you can build and preview the site locally
-  - you have something, however rough, to show the class
+  - you can state, in your own words, what makes a claim "formalized" under
+    this course's definition
+  - you have re-derived the week 1 worked example's equity figure by hand,
+    not just read it
+related:
+  - lectures/week-01
 ---
-
-<!-- STARTER_CONTENT: replace this session, then remove this comment. -->
-
-Replace this page. A session brief tells a student three things: what to bring,
-what will happen, and how to tell afterwards whether it went well.
 
 ## Before the session
 
-The `spec` above is the contract. Write each line so a reader can tell whether
-it has been met without asking you --- that is the difference between a spec and
-a wish.
+Read the week 1 lecture. Bring one folk poker claim of your own — something
+you've heard said with confidence at a table or in a strategy forum — that
+isn't already on the list the lecture names.
 
 ## In the session
 
-Say how the time is actually spent, in the order it happens. If the session runs
-to a repeating shape --- a demo, then feedback, then work time --- name the
-parts and say roughly how long each takes. Students plan against it.
+No problem set is due in week 1, so the time goes to notation and a shared
+worked example instead. Hand notation, range notation, and the equity/EV
+vocabulary introduced in lecture get fixed here, once, so that nobody spends
+week 4 unsure whether "equity" means the same thing two people mean by it.
+
+Then the group re-derives the week 1 example — 22's equity against a random
+hand — by hand, in miniature: not a full 300,000-trial simulation with pen
+and paper, but enough of a reduced version (a handful of representative
+opponent hands, a handful of representative boards) to see why a
+computed number, not a table thumb-rule, is the kind of answer this course
+is after.
+
+The folk claims brought in from outside get sorted onto the same list the
+lecture started: which ones the semester's syllabus will actually resolve,
+and which ones don't have an obvious formal claim hiding inside them at
+all — which is itself a useful thing to notice about a piece of folklore.
 
 ## Afterwards
 
-Say what leaves the session: a mark, a piece of feedback, a decision about the
-next week's work.
+Nothing is marked this week. What should be settled going into week 2:
+shared notation, and a working sense of what turns an assertion into a
+computation.
