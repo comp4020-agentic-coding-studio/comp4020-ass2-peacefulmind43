@@ -1,0 +1,348 @@
+---
+title: Pot Odds, Equity, and the Calling Decision
+description: Week 3 — the rule of 4 and 2, its exact error, and one real hand priced end to end
+---
+
+{/* _class: impact */}
+
+# Pot Odds, Equity, and the Calling Decision
+
+Week 3 — reopening a Week 1 shortcut, and pricing a real decision with it
+
+---
+
+## Reopening a Week 1 folk rule
+
+Week 1 named "use the rule of 4 and 2 to estimate your equity on a draw" as
+a claim to be cashed in later. This is that week.
+
+---
+
+## The rule of 4 and 2
+
+A fast mental-math shortcut for equity on a drawing hand:
+
+- **Two cards to come** (you're on the flop): outs × 4 ≈ equity %
+- **One card to come** (you're on the turn): outs × 2 ≈ equity %
+
+No hypergeometric distribution required — just count outs and multiply.
+
+---
+
+## Why a shortcut at all
+
+Exact equity needs a hypergeometric calculation most players can't run at
+the table in real time. The rule of 4 and 2 trades precision for speed.
+
+The question this deck answers: **how much precision, exactly?**
+
+---
+
+{/* _class: impact */}
+
+# Module 1 done
+
+Next: put a number on the error, not just a suspicion that it exists
+
+---
+
+## The flagship hand
+
+**Hero:** A♠K♠. **Board (turn):** 5♠ 9♠ 2♥ Q♦.
+
+Two spades in hand, two on board — a nut flush draw, no pair, one card
+(the river) to come.
+
+---
+
+## Counting the outs
+
+13 spades total, minus the 4 already visible (2 in hand, 2 on board):
+
+**9 outs.**
+
+---
+
+## Rule of 2 vs exact, one card to come
+
+| Method | Equity |
+|---|---|
+| Rule of 2 (9 × 2) | 18.0% |
+| Exact hypergeometric | 19.6% |
+
+The rule **underestimates** here by about 1.6 percentage points.
+
+---
+
+## Rule of 4 vs exact, two cards to come
+
+Same 9-out draw, but caught on the flop instead of the turn:
+
+| Method | Equity |
+|---|---|
+| Rule of 4 (9 × 4) | 36.0% |
+| Exact hypergeometric | 35.0% |
+
+Now the rule **overestimates**, by about 1.0 percentage point — and the
+error grows with the out count:
+
+| Outs | Rule of 4 | Exact | Error |
+|---|---|---|---|
+| 9 | 36.0% | 35.0% | +1.0 pp |
+| 15 | 60.0% | 54.1% | +5.9 pp |
+
+---
+
+{/* _class: impact */}
+
+# The rule isn't wrong — it's linear
+
+The real relationship isn't. It tracks well for small draws and drifts
+further for big multi-way draws, in a direction and size you can now name.
+
+---
+
+## Outs, by draw type
+
+The flagship hand is one entry in a small catalog. Same counting method,
+different shapes:
+
+---
+
+## Gutshot: 4 outs
+
+Hero **Q♣J♦**, board **9♥8♠2♣**. Only a Ten completes 8-9-T-J-Q — one rank,
+four cards, none visible: **4 outs**.
+
+---
+
+## Open-ended straight draw: 8 outs
+
+Hero **9♦8♣**, board **7♠6♥2♦**. A 5 or a Ten completes the straight from
+either end — two ranks, eight cards: **8 outs**.
+
+---
+
+## Combo draw: 15 outs
+
+Hero **J♠T♠**, board **9♠8♥2♠**. A flush draw (9 spade outs) *and* an
+open-ended straight draw (Q or 7, 8 cards) — but the Q♠ and 7♠ are each
+already counted as flush outs. Union, not sum:
+
+9 + (8 − 2 overlap) = **15 outs**, not 17.
+
+---
+
+{/* _class: impact */}
+
+# Module 3 done
+
+The counting method is stable across draw types — the trap is elsewhere
+
+---
+
+## The miscount that's easy to make
+
+Back to the flagship hand: A♠K♠ on 5♠9♠2♥Q♦. It's tempting to count outs
+straight off the board:
+
+13 spades − 2 seen on the board = **11 outs**.
+
+---
+
+## Why that's wrong
+
+Your own hole cards remove supply from the deck too, not just the board.
+Hero is holding two of those thirteen spades:
+
+13 − 2 (board) − **2 (hero's own hand)** = **9 outs**, not 11.
+
+---
+
+## What the miscount costs
+
+| Outs used | Equity (1 card to come) |
+|---|---|
+| 11 (naive) | 23.9% |
+| 9 (correct) | 19.6% |
+
+A 4.3-percentage-point overestimate, purely from forgetting to remove your
+own cards from the count. This is card removal doing its damage silently,
+inside a step that looks like simple arithmetic.
+
+---
+
+## Exact hypergeometric equity: the formula
+
+For `outs` cards among `unseen` remaining, in `draws` cards still to come:
+
+**P(at least one out) = 1 − C(unseen − outs, draws) / C(unseen, draws)**
+
+The complement — the probability of missing *every* out — is easier to
+count directly, so the formula counts that and subtracts from 1.
+
+---
+
+## Plugging in the flagship hand
+
+outs = 9, unseen = 46 (52 minus 6 known cards), draws = 1:
+
+P = 1 − C(37, 1) / C(46, 1) = 1 − 37/46 = 9/46 ≈ **19.6%**
+
+---
+
+{/* _class: impact */}
+
+# A real equity figure
+
+Not a rule of thumb, not a rounded shortcut — an exact answer this deck
+will now put a dollar value behind.
+
+---
+
+## The pot-odds threshold
+
+To decide whether a call is profitable, compare your equity against the
+**equity a call needs to break even**:
+
+**required equity = call / (pot + call)**
+
+`pot` here already includes whatever the opponent just bet.
+
+---
+
+## The flagship's numbers
+
+Pot is $100 (including villain's bet). Hero must call $50 to see the river:
+
+required equity = 50 / (100 + 50) = 50 / 150 = **33.3%**
+
+---
+
+{/* _class: impact */}
+
+## Verdict: fold
+
+Hero's real equity is 19.6%. The call needs 33.3%. That's not close —
+this is the week's first genuine "no," and it's a number, not a feeling.
+
+---
+
+## What implied odds add
+
+If hero expects to win extra money on later streets *when the draw hits*,
+that expected extra money counts toward the pot in the threshold formula:
+
+required equity = call / (pot + call + expected future winnings)
+
+---
+
+## The flagship, with $60 implied
+
+required equity = 50 / (100 + 50 + 60) = 50 / 210 ≈ **23.8%**
+
+Still above the flagship's 19.6% equity. Implied odds narrow the gap here —
+they don't close it.
+
+---
+
+## How much would it take?
+
+Solving for the implied winnings that make the call break even:
+
+50 / (150 + X) = 9/46 → X ≈ **$106**
+
+That's the concrete size of the implied-odds argument this call would
+actually need — not "probably enough," a number.
+
+---
+
+## Reverse implied odds
+
+The mirror problem: sometimes hitting your draw doesn't win the pot — a
+bigger flush, a redraw you didn't see. That risk only pushes the real
+required equity **higher**, never lower. This deck's numbers so far assume
+it away; a careful player doesn't.
+
+---
+
+{/* _class: impact */}
+
+# Module 7 done
+
+Two ways the threshold moves in practice — now walk one hand through all of it
+
+---
+
+## The hand, from the top
+
+Flop: 5♠9♠2♥. Hero calls a small bet holding A♠K♠. Turn: Q♦, no help to
+the board's texture. Villain bets $50 into a $100 pot.
+
+---
+
+## An informal range read
+
+Villain's sizing and the line so far look more like top pair or an
+overpair than a slowplayed set or two pair — a rough class, not a
+distribution. *Week 6 formalizes how to turn a betting line like this one
+into an actual range.*
+
+---
+
+## The numbers, side by side
+
+| Quantity | Value |
+|---|---|
+| Hero's exact equity | 19.6% |
+| Required equity to call | 33.3% |
+| Required equity, with $60 implied | 23.8% |
+
+---
+
+{/* _class: impact */}
+
+## Verdict, stated once
+
+Equity is well short of what a call needs, with or without a reasonable
+implied-odds allowance. **Fold** — and now every step of that sentence has
+a number behind it.
+
+---
+
+## Pricing the decision in EV
+
+**EV(call) = equity × pot − (1 − equity) × call**
+
+This turns "fold" from a verdict into a dollar figure — what calling is
+worth *on average*, not just whether it clears a threshold.
+
+---
+
+## The flagship's EV
+
+equity = 9/46, pot = $100, call = $50:
+
+EV(call) = (9/46 × 100) − (37/46 × 50) = **−$20.65**
+
+---
+
+## What the folk rule would have priced it at
+
+Using the rule-of-2 estimate (18%) instead of the exact figure:
+
+EV(call) = (0.18 × 100) − (0.82 × 50) = **−$23.00**
+
+Same fold either way here — but the folk rule misprices the decision by
+about $2.35, and Module 2 already showed that gap only grows on bigger
+draws.
+
+---
+
+{/* _class: impact */}
+
+# Correct qualitatively, wrong quantitatively
+
+That gap is exactly what this course exists to measure. Week 4 builds EV
+properly — including the variance around a single-hand estimate like this
+one, which a fold-or-call verdict alone never shows.
