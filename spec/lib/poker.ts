@@ -252,6 +252,59 @@ export function simulateEquityVsRandomHand(
   };
 }
 
+/**
+ * Monte Carlo equity of a fixed hero hand against `numOpponents` uniformly
+ * random opponent hands dealt from the same board, over `trials` independent
+ * deals. Generalizes simulateEquityVsRandomHand to more than one opponent;
+ * with numOpponents=1 it agrees with that function's equityPct exactly (same
+ * win/tie-share definition), so it isn't a separate implementation to trust
+ * blindly — it specializes to the already-tested one.
+ */
+export function simulateEquityVsNRandomHands(
+  heroHand: [Card, Card],
+  numOpponents: number,
+  trials: number,
+  seed: number,
+): { equityPct: number; trials: number; seed: number; numOpponents: number } {
+  const rng = mulberry32(seed);
+  const deck = deckExcluding(...heroHand);
+  const n = deck.length;
+  const cardsNeeded = numOpponents * 2 + 5;
+
+  let equitySum = 0;
+
+  for (let t = 0; t < trials; t++) {
+    for (let i = 0; i < cardsNeeded; i++) {
+      const j = i + Math.floor(rng() * (n - i));
+      const tmp = deck[i];
+      deck[i] = deck[j];
+      deck[j] = tmp;
+    }
+    const board = deck.slice(numOpponents * 2, numOpponents * 2 + 5);
+
+    const heroScore = bestOf7([heroHand[0], heroHand[1], ...board]);
+    let bestScore = heroScore;
+    let tieCount = 1; // hero counted once; incremented below if others tie hero's score
+    for (let o = 0; o < numOpponents; o++) {
+      const oppScore = bestOf7([deck[o * 2], deck[o * 2 + 1], ...board]);
+      if (oppScore > bestScore) {
+        bestScore = oppScore;
+        tieCount = 0; // hero no longer among the best; opponents tying each other don't matter to hero's equity
+      } else if (oppScore === bestScore) {
+        tieCount++;
+      }
+    }
+    if (heroScore === bestScore) equitySum += 1 / tieCount;
+  }
+
+  return {
+    equityPct: (100 * equitySum) / trials,
+    trials,
+    seed,
+    numOpponents,
+  };
+}
+
 /** Exact hypergeometric P(at least one of `outs` cards appears in `draws` cards from `unseen` remaining). */
 export function hypergeometricAtLeastOne(outs: number, unseen: number, draws: number): number {
   // P(none of the outs) = C(unseen-outs, draws) / C(unseen, draws)
