@@ -1,53 +1,53 @@
 # Process overview
 
+<!-- TEMPLATE: this file is a shape to fill in, not a form. Replace everything
+     in it with your own overview, and delete this comment — `pnpm
+     check:evidence` will remind you if it's still here. -->
+
+Written by you, for a reader: how you got from the brief to the harness and
+agentic workflow behind this submission. Markers read this file and follow its
+citations; they don't trawl the repo for evidence you didn't point at.
+
+This file is the shape; the course site's
+[assessment page](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/topics/assessment/#what-you-submit)
+is the requirement, and its
+[word counts](https://comp.anu.edu.au/courses/comp4020-agentic-coding-studio/topics/assessment/#word-counts)
+cover every deliverable.
+
 ## What I built
 
-SLOP3251, *The Formal Theory of Poker* — a fictional 12-week course at
-"Slop University" that takes real poker-theory folklore (the rule of 4 and
-2, "position is power," ICM, the Kelly criterion, Nash equilibria) and
-requires every numeric claim in the content to be backed by a spec test
-that derives the expected value independently, per the harness rule I
-wrote into [`CLAUDE.md`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-peacefulmind43/commit/583b199).
+One paragraph: the thing, and the idea behind it.
 
 ## How I got here
 
-I worked with Claude Code as the agent, week by week, almost always in the
-same order: write a harness (a spec-only helper plus tests that compute a
-result from first principles), then write the lecture and Problem Session
-content that cites it, then run `pnpm check` before moving on. Harness
-commits and content commits stayed separate on purpose, so the diff for
-"here is the math" and the diff for "here is the sentence citing it" can be
-read one at a time — e.g. the Monte Carlo equity simulator
-([`ad47176`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-peacefulmind43/commit/ad47176))
-feeding week 2's combinatorics content, or the ICM calculator
-([`0cd5918`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-peacefulmind43/commit/0cd5918))
-feeding week 10.
+The account of the process: how the work actually went, and how you knew the
+result was right. Tell it in whatever order makes it clear. A weekly prototype
+needs a paragraph or two; an assignment needs more.
 
-The harness caught real mistakes rather than just documenting correct
-answers. Solving a four-rank Kuhn poker extension for week 12, I first
-asserted the equilibrium's opening-bet frequency was monotonic in card
-rank; running the test against the actual solver output
-([`c52eaa4...b458268`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-peacefulmind43/compare/c52eaa4...b458268))
-showed that assumption was false — real Kuhn-family equilibria are
-polarized, not monotonic — so I rewrote the assertion rather than the code.
+Cite the record as you go, as links whose text is the commit hash or range and
+whose target is this repo's commit or compare URL, so a reader clicks straight
+to the evidence:
 
-Week 12 also needed a real published result to compare a from-scratch
-solver against, which is exactly the claim `CLAUDE.md` says gets checked
-against a citable source before it ships, not invented. I verified Kuhn
-poker's actual equilibrium and game value against its Wikipedia article
-before writing any content, confirmed a from-scratch CFR solver reproduced
-it, and only then trusted the same solver on an unpublished extension. That
-choice point was one I raised explicitly rather than deciding alone; the
-answer authorized both the plan and a small addition to already-shipped
-week 7 content ahead of it:
+- one commit: [`a1b2c3d`](https://github.com/YOUR-ORG/YOUR-REPO/commit/a1b2c3d)
+- a range:
+  [`a1b2c3d...e4f5a6b`](https://github.com/YOUR-ORG/YOUR-REPO/compare/a1b2c3d...e4f5a6b)
 
-> I'll go with option 1 — but you should feel free to revise week 7 first,
-> before building week 12, if that would help the mark.
->
-> (translated; the original request was in Chinese)
+To pair a prompt with the commit it produced, quote the prompt (curated, not a
+full transcript) next to the citation:
 
-The last pass replaced everything still marked `STARTER_CONTENT`
-([`426d5df`](https://github.com/comp4020-agentic-coding-studio/comp4020-ass2-peacefulmind43/commit/426d5df)):
-a real policies page, and original hero/social-card artwork generated as
-SVG and rasterized with `sharp` to match the theme's existing gold-and-ink
-brand palette, rather than leaving the shipped placeholders in place.
+> the prompt, verbatim
+
+Screenshots are welcome where one carries the point better than a sentence does.
+Commit the file to this repo and link it with a **relative** path, which is what
+makes it render on GitHub: `![alt text](docs/before.png)`. Images don't count
+towards the word count and don't replace the citation.
+
+## Before you ship
+
+`pnpm check:evidence` verifies that this comment is gone, that your citations
+resolve to real commits, that a crit week's reflection entry is in
+`reflections/`, and that your `CLAUDE.md` is there. It checks that your account
+is traceable, not that it is good: that is the marker's call.
+
+Images aren't checked: unlike a citation whose SHA doesn't resolve, a broken
+image is visible the moment this file is rendered on GitHub.
