@@ -87,7 +87,11 @@ player hold a *middle* hand too, which must sometimes call, sometimes
 fold, sometimes even bet — a richer system of indifference equations than
 the one just solved here. Deriving it fully is beyond this week's scope;
 naming it correctly, and knowing it's the next rung up from what was just
-built by hand, is the goal for now.
+built by hand, is the goal for now. Week 1 catalogued folk claims to be
+cashed in later; this is the same move for a method, not a claim — the
+capstone in week 12 is where Kuhn poker's real equilibrium finally gets
+solved, checked against the published result, and reused on a game bigger
+than anything solved by hand in this course.
 
 ## Before next week
 
