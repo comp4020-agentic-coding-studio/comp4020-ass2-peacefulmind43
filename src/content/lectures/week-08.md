@@ -15,7 +15,7 @@ related:
 
 ## What "optimal" means once an opponent adapts
 
-Week 7 derived x\* = 33.3% and c\* = 66.7% for one specific toy game, as
+Week 7 derived x\* = 25% and c\* = 66.7% for one specific toy game, as
 the frequencies that make each player indifferent. This week asks: what is
 that indifference actually buying, and is it always the right target?
 
@@ -66,12 +66,12 @@ to it, computable in the same way.
 ## The actual trade-off
 
 Exploitative play's appeal: against villain's real x = 50% (well above
-x\* = 33.3%), calling 100% earns hero $25 per hand — strictly more than
-the $0 the equilibrium mix guarantees. Its cost: that $25 depends entirely
-on villain actually bluffing 50% of the time continuing to be true. If
-villain notices hero calling too much and stops bluffing, hero's
-$25-per-hand edge becomes hero's own exploitability instead — the same
-formula, now pointed the other way. GTO play never needs that assumption
+x\* = 25%), calling every time earns hero $50 per hand, against the
+$33.33 that defending at the equilibrium 66.7% earns from that same
+villain. Its cost: that extra $16.67 depends entirely on villain actually
+bluffing 50% of the time continuing to be true. If villain notices hero
+calling too much and stops bluffing, hero's edge becomes hero's own
+exploitability instead — the same formula, now pointed the other way. GTO play never needs that assumption
 to hold; exploitative play is a bet that it will.
 
 ## Before next week

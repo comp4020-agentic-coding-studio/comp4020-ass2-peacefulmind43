@@ -19,7 +19,7 @@ related:
 
 ## Before the session
 
-Read the lecture page. Bring the $100 pot / $50 bet numbers — 33.3% optimal
+Read the lecture page. Bring the $100 pot / $50 bet numbers — 25% optimal
 bluff frequency, 66.7% MDF — the session re-derives both from the raw EV
 equations rather than starting from the ratios.
 

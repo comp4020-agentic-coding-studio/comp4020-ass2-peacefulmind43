@@ -39,16 +39,17 @@ If x is the fraction of villain's betting range that's a bluff, hero's
 equity when calling is exactly x (call only beats a bluff). Using the same
 two-outcome EV formula from weeks 3–4:
 
-EV(call) = x · pot − (1 − x) · bet
+EV(call) = x · (pot + bet) − (1 − x) · bet
 
 Setting this to zero — the fraction of bluffs that makes hero exactly
 indifferent between calling and folding:
 
-**x\* = bet / (pot + bet)**
+**x\* = bet / (pot + 2 · bet)**
 
-This is week 3's required-equity formula, algebraically unchanged — just
-read from the other player's seat. There, it told hero the equity needed
-to call. Here it tells villain the bluff frequency that keeps hero from
+This is week 3's required-equity formula, just read from the other
+player's seat: hero risks `bet` to win a pot that villain's own bet has
+already grown to `pot + bet`. There, it told hero the equity needed to
+call. Here it tells villain the bluff frequency that keeps hero from
 being able to profitably exploit either "always call" or "always fold."
 
 ## Villain's side: how often must hero defend?
@@ -69,14 +70,17 @@ call to stop villain's bluff from being automatically profitable.
 
 ## Plugging in week 3's own numbers
 
-Pot = $100, bet = $50 — the flagship hand's own bet sizing, reused so the
-numbers are already familiar:
+Pot = $100, bet = $50 — a half-pot bet, in the same dollar amounts week 3
+used, so the arithmetic stays familiar:
 
-- Optimal bluff frequency: x\* = 50 / 150 ≈ **33.3%**
+- Optimal bluff frequency: x\* = 50 / 200 = **25%**
 - Minimum defense frequency: c\* = 100 / 150 ≈ **66.7%**
 
-Same bet sizing, and the two numbers add to 100% — not a coincidence, but a
-feature of a toy game with exactly two outcomes on each side.
+These are not two views of one number, and it is worth being careful about
+which pairs with which. The quantity that completes MDF is hero's own
+*folding* frequency, 1 − c\* ≈ 33.3%. Villain's bluffing frequency is the
+separate 25% — one bluff for every three value hands, the standard ratio
+for a bet of half the pot.
 
 ## Kuhn poker, named but not fully derived
 
