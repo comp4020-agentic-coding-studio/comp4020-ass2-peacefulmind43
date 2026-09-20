@@ -48,7 +48,7 @@ could be honest about how each one actually landed.
 
 ## A method too small to matter, and one too big to do by hand
 
-Week 7 solved a toy game with three pure strategies by writing down two
+Week 7 solved a toy game with two actions per player by writing down two
 indifference equations and solving them on paper. Real Kuhn poker — the
 smallest *fully* solved poker game, named in week 7 but deliberately not
 derived there — has twelve information sets, each a hero-or-villain

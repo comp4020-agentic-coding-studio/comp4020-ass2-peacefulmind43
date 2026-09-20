@@ -63,9 +63,9 @@ content behind "size matters," not just a caution.
 ## Half-Kelly, and the trade this course keeps finding
 
 At f = 0.1 (half of f\*): g(0.1) ≈ +1.50% per bet — lower growth than full
-Kelly, but (a fact this course doesn't re-derive in full, but is a direct
-consequence of the same growth-rate function) meaningfully lower variance
-in the path bankroll actually takes to get there. The same pattern week 8
+Kelly, but meaningfully lower variance in the path bankroll actually takes
+to get there — not re-derived here in full, though it follows directly
+from the same growth-rate function. The same pattern week 8
 found between GTO and exploitative play shows up again: the
 growth-maximizing size and the size a real bankroll can survive holding
 aren't automatically the same choice.
