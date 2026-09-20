@@ -87,7 +87,7 @@ The naive model overvalues the chip leader by $82.14 and undervalues the
 short stack by $57.14. The reason isn't a rounding quirk — it's the shape
 of the payout structure. A's extra chips over B and C are only worth their
 *proportional* share if finishing 1st and finishing 3rd paid proportionally
-too, but here 1st pays 6x what 3rd pays while having only ~2.4x the chips.
+too, but here 1st pays 6x what 3rd pays while A holds only 2.5x C's chips.
 Once C busts, a large share of the remaining prize pool is still locked
 into 1st and 2nd — money A can't guarantee just by holding more chips now.
 Symmetrically, C's stack under-represents C's dollar equity because C is

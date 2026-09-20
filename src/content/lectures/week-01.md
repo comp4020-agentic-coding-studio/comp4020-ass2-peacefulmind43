@@ -20,8 +20,8 @@ an early attempt to state some of that folklore as general principles — the
 Fundamental Theorem of Poker among them. Bill Chen and Jerrod Ankenman's
 *The Mathematics of Poker* (2006) pushed further, applying real game theory
 to betting and bluffing rather than just probability. Then the game theory
-stopped being aspirational: in 2015 a Cepheus computer program built at the
-University of Alberta essentially solved heads-up limit hold 'em, and by
+stopped being aspirational: in 2015 a program called Cepheus, built at the
+University of Alberta, essentially solved heads-up limit hold 'em, and by
 2019 Carnegie Mellon and Facebook AI's Pluribus was beating elite
 professionals at six-player no-limit
 — not by simulating intuition, but by computing an equilibrium.

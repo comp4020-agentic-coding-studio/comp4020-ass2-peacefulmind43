@@ -86,5 +86,5 @@ how to reason about the size and reliability of that price (weeks 4–6),
 how two rational players settle on a stable joint strategy (weeks 7–8), how
 more players and a tournament structure change the calculation (weeks
 9–10), and now how much of a bankroll a known edge is actually worth
-risking. Week 12 closes the course by putting all six pieces to work on one
-hand, played out from first decision to showdown.
+risking. Week 12 closes the course by putting all five pieces to work: it
+grades the claims week 1 opened with, then solves a real game outright.

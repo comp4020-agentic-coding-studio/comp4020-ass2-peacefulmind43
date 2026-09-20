@@ -78,7 +78,8 @@ Running a from-scratch regret-minimization solver — the same idea as week
 7's indifference equations, automated — for 300,000 iterations over Kuhn
 poker's actual game tree gives a game value of **−0.05555**, matching the
 published −1/18 to within 0.0001, and reproduces every piece of the
-published strategy: the lowest card never calls after a check-raise, the
+published strategy: the lowest card never calls after checking and facing a
+bet, the
 highest card always calls, the middle card never opens betting and calls
 roughly a third of the time facing one, exactly as the cited result
 describes. The gap between "solved by hand" and "solved by a general

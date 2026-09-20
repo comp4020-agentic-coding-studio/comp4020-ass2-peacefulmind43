@@ -43,5 +43,5 @@ arguing with the material rather than just restating it.
 
 This is the last Problem Session of the semester. Nothing further is
 assigned here — the final synthesis this week's lecture ends on is the
-last new idea; weekly assignment 12, the midterm, and the final exam are
-where it gets tested.
+last new idea; the remaining problem sets, the midterm, and the final exam
+are where it gets tested.

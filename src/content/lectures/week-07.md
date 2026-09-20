@@ -75,7 +75,7 @@ numbers are already familiar:
 - Optimal bluff frequency: x\* = 50 / 150 ≈ **33.3%**
 - Minimum defense frequency: c\* = 100 / 150 ≈ **66.7%**
 
-Same bet sizing, same two numbers add to 100% — not a coincidence, but a
+Same bet sizing, and the two numbers add to 100% — not a coincidence, but a
 feature of a toy game with exactly two outcomes on each side.
 
 ## Kuhn poker, named but not fully derived
